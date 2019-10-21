@@ -31,9 +31,6 @@ public class Drivetrain extends Subsystem {
   private static SpeedControllerGroup mGroupLeft, mGroupRight;
   private static DifferentialDrive mDrive;
 
-  public DriveMode driveMode;
-  public Side side;
-
   // CONFIGURATION FUNCTIONS
   public void configureDrive(){
     leftTalon = new WPI_TalonSRX(RobotMap.drive_leftMasterTalon1);
