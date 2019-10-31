@@ -30,6 +30,7 @@ public class Drivetrain extends Subsystem {
   private static ADXRS450_Gyro gyro;
   private static SpeedControllerGroup mGroupLeft, mGroupRight;
   private static DifferentialDrive mDrive;
+  private double m_thrust, m_rotation;
 
   // CONFIGURATION FUNCTIONS
   public void configureDrive(){
@@ -105,21 +106,24 @@ public class Drivetrain extends Subsystem {
   
   //Drive Functions
   private void arcadeDrive(double thrust, double rotation){
-    mDrive.arcadeDrive(thrust, rotation, true);
+    m_thrust = thrust; m_rotation = rotation;
+    mDrive.arcadeDrive(m_thrust, m_rotation, true);
   }
 
   private void curvatureDrive(double thrust, double rotation){
     boolean quickTurn = false;
+    m_thrust = thrust; m_rotation = rotation;
     if(Math.abs(thrust)<0.1 && Math.abs(rotation)>0.1){
       quickTurn = true;
     } else {
       quickTurn = false;
     }
-    mDrive.curvatureDrive(thrust, rotation, quickTurn);
+    mDrive.curvatureDrive(m_thrust, m_rotation, quickTurn);
   }
 
   private void setDrive(double thrust, double rotation){
-    mDrive.arcadeDrive(thrust, rotation);
+    m_thrust = thrust; m_rotation = rotation;
+    mDrive.arcadeDrive(m_thrust, m_rotation);
   }
 
   //Telemetry Function

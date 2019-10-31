@@ -5,16 +5,20 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot;
+package frc.robot.subsystems;
 
-public class States {
-    public static enum DriveMode {
-        NORMAL, TURBO, SYSTEM;
-    }
-    public static enum Side {
-        LEFT, RIGHT;
-    }
-    public static enum ShooterMode {
-        FORWARD_SHOT, REAR_SHOT, STOW, CLIMB;
-    }
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+/**
+ * Add your docs here.
+ */
+public class Intake extends Subsystem {
+  // Put methods for controlling this subsystem
+  // here. Call these from Commands.
+
+  @Override
+  public void initDefaultCommand() {
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
+  }
 }
